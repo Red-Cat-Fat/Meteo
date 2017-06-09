@@ -184,25 +184,34 @@
 	);
 	
 	
+	$distance01 = array();
+	$distance02 = array();	
+	$distance03 = array();
 	
 	$db=mysql_connect("localhost", "boronnikov_a_i", "12345678");
 	mysql_select_db("boronnikov_a_i",$db);
 
-	$result=mysql_query("select * from dist where 'zarad' = 0", $db);
-	echo $zarad;
+	$result=mysql_query("select * from dist where zarad = ".$zarad." and  (dist = 4 or dist = 6)", $db)l".$dist-2 ." or dist = ".$dist.")", $db);
 	echo "<table border=1>\n";
 	echo "<tr><td>Id</td> <td>zarad</td><td>dist</td><td>Id</td></tr>\n";
 	while ($myrow = mysql_fetch_array($result))
 	{
-		printf("<tr><td>%s<td> %s</td><td>%s</td></tr>\n", $myrow[0], $myrow[1], $myrow[2]);
+		/*if($zarad == $myrow[1]) 
+			if($dist == $myrow[2])*/
+				printf("<tr><td>%s<td> %s</td><td>%s</td></tr>\n", $myrow[0], $myrow[1], $myrow[2]);
+			/*elseif($dist = $myrow[2]-2)
+				printf("<tr><td>%s<td> %s</td><td>%s</td></tr>\n", $myrow[0], $myrow[1], $myrow[2]);
+			elseif($dist = $myrow[2]+2)
+				printf("<tr><td>%s<td> %s</td><td>%s</td></tr>\n", $myrow[0], $myrow[1], $myrow[2]);*/
 	}
 	echo "</table>\n";
 
 	
+	/*$distance01 = array(	distanceAllinONE[zarad][dist-2];
+	$distance02 = array(	distanceAllinONE[zarad][dist];
+	$distance03 = array(	distanceAllinONE[zarad][dist+2];*/
 	
-	/*distance01 = distanceAllinONE[zarad][dist-2];
-	distance02 = distanceAllinONE[zarad][dist];
-	distance03 = distanceAllinONE[zarad][dist+2];*/
+	
 	
 function artAroundXX ($x) 
 {
@@ -238,3 +247,4 @@ function artAroundRotate($x)
     }
 }
 /**/?>
+
